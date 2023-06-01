@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="" params="prefix">
+  <xacro:macro name="diffbot" params="prefix">
 
   <!-- Constants for robot dimensions -->
   <xacro:property name="PI" value="3.1415926535897931"/>
@@ -81,7 +81,7 @@
     <joint name="${prefix}right_wheel_joint" type="continuous">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}right_wheel"/>
-      <origin xyz="0 -0.07 ${z_offset}" rpy="0 0 0"/>
+      <origin xyz="0 0.07 ${z_offset}" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
       <dynamics damping="0.2"/>
     </joint>

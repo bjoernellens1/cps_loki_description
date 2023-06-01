@@ -217,8 +217,6 @@
       </joint>
 
   </xacro:macro>
-        <!-- Include the macro to create the diffbot -->
-  <xacro:diffbot prefix=""/>
 </robot>
 
 
