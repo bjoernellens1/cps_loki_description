@@ -179,6 +179,44 @@
         </inertial>
       </link>
 
+      <!-- Laser Link -->
+      <link name="${prefix}laser_link">
+        <visual>
+          <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+          <geometry>
+            <!-- Define the geometry of the laser link, e.g., a cylinder -->
+            <cylinder length="0.05" radius="0.02"/>
+          </geometry>
+        </visual>
+      </link>
+
+      <!-- Joint between Base Link and Laser Link -->
+      <joint name="${prefix}laser_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}laser_link"/>
+        <origin xyz="0 ${base_length/2} ${z_offset}" rpy="0 0 0"/>
+      </joint>
+
+      <!-- Camera Link -->
+      <link name="${prefix}camera_link">
+        <visual>
+          <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+          <geometry>
+            <!-- Define the geometry of the camera link, e.g., a box -->
+            <box size="0.1 0.1 0.05"/>
+          </geometry>
+        </visual>
+      </link>
+
+      <!-- Joint between Base Link and Camera Link -->
+      <joint name="${prefix}camera_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}camera_link"/>
+        <origin xyz="0 ${base_length/2} ${z_offset + base_height}" rpy="0 0 0"/>
+      </joint>
+
+
+
   </xacro:macro>
 
 </robot>
