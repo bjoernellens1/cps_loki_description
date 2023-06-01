@@ -3,11 +3,11 @@
 
   <xacro:arg name="prefix" default="" />
 
-  <xacro:include filename="$(find odrive_demo_description)/urdf/diffbot_description.urdf.xacro" />
+  <xacro:include filename="$(find bot_mini_description)/urdf/diffbot_description.urdf.xacro" />
 
-  <xacro:include filename="$(find odrive_demo_description)/urdf/diffbot.materials.xacro" />
+  <xacro:include filename="$(find bot_mini_description)/urdf/diffbot.materials.xacro" />
 
-  <xacro:include filename="$(find odrive_demo_description)/urdf/odrive.ros2_control.xacro" />
+  <xacro:include filename="$(find bot_mini_description)/urdf/odrive.ros2_control.xacro" />
 
   <xacro:diffbot prefix="$(arg prefix)" />
 
