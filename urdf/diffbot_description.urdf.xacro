@@ -17,12 +17,12 @@
     <xacro:property name="z_offset" value="-${base_height/2}" /> <!-- Space btw top of beam and the each joint -->
 
     <!-- dummy link - used for ros2 control so it stops complaining? -->
-    <link name="dummy">
+    <link name="${prefix}dummy">
     </link>
 
-    <joint name="dummy_joint" type="fixed">
-      <parent link="dummy"/>
-      <child link="base_link"/>
+    <joint name="${prefix}dummy_joint" type="fixed">
+      <parent link="${prefix}dummy"/>
+      <child link="${prefix}base_link"/>
     </joint>
 
     <!-- Base Link -->
@@ -59,6 +59,16 @@
       <axis xyz="0 1 0"/>
       <dynamics damping="0.2"/>
     </joint>
+
+    <!-- BASE_FOOTPRINT LINK (Used for SLAM: Should be oin the ground beneath the robo like the shadow) -->
+    <joint name="${prefix}base_footprint_joint" type="fixed">
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}base_footprint"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    
+    <link name="${prefix}base_footprint">
+    </link>
 
     <!-- left wheel Link -->
     <link name="${prefix}left_wheel">
