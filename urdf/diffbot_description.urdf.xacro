@@ -161,6 +161,30 @@
       </inertial>
     </link>
 
+    <!-- Adding base_footprint for mapping (Needed by slam toolbox) -->
+    <link name="${prefix}base_footprint">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${base_length} ${base_width} ${base_height}"/> <!-- Updated base dimensions -->
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${base_length} ${base_width} ${base_height}"/> <!-- Updated base dimensions -->
+        </geometry>
+        <material name="orange"/>
+      </visual>
+    </link>
+
+    <joint name="${prefix}base_footprint_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}base_footprint" />
+    </joint>
+
     <!-- right wheel joint -->
     <joint name="${prefix}right_wheel_joint" type="continuous">
       <origin xyz="-0.12499999999999993061 -0.58900000000000007905 -0.10500000000000000999" rpy="-1.570796326794896558 -2.2204460492503130808e-16 -1.57079632679489678" />
