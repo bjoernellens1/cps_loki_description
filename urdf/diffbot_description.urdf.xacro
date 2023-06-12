@@ -174,14 +174,14 @@
     <joint name="${prefix}right_wheel_joint" type="continuous">
       <origin xyz="-0.12499999999999993061 -0.58900000000000007905 -0.10500000000000000999" rpy="-1.570796326794896558 -2.2204460492503130808e-16 -1.57079632679489678" />
       <parent link="${prefix}base_link" />
-      <child link="${prefix}right_wheel_link" />
+      <child link="${prefix}right_wheel" />
       <axis xyz="0 0 1"/>
       <limit effort="1" velocity="20" />
       <joint_properties friction="0.0"/>
     </joint>
 
     <!-- right wheel Link -->
-    <link name="${prefix}right_wheel_link">
+    <link name="${prefix}right_wheel">
       <visual>
         <origin xyz="-0.10999999999999998668 0.060000000000000011657 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
         <geometry>
@@ -208,14 +208,14 @@
     <joint name="${prefix}left_wheel_joint" type="continuous">
       <origin xyz="0.12500000000000013878 -0.58900000000000007905 -0.10500000000000003775" rpy="1.57079632679489678 -1.1102230246251567869e-16 -1.570796326794896558" />
       <parent link="${prefix}base_link" />
-      <child link="${prefix}left_wheel_link" />
+      <child link="${prefix}left_wheel" />
       <axis xyz="0 0 1" />
       <limit effort="1" velocity="20" />
       <joint_properties friction="0.0" />
     </joint>
 
     <!-- left wheel Link -->
-    <link name="${prefix}left_wheel_link">
+    <link name="${prefix}left_wheel">
       <visual>
         <origin xyz="-0.10999999999999998668 0.05999999999999999778 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
         <geometry>
@@ -242,14 +242,14 @@
     <joint name="${prefix}caster_wheel_joint" type="fixed">
       <origin xyz="5.3368019332749957491e-17 -0.29900000000000009903 -0.064999999999999974465" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
       <parent link="${prefix}base_link" />
-      <child link="${prefix}caster_wheel_link" />
+      <child link="${prefix}caster_wheel" />
       <axis xyz="0 0 1"/>
       <limit effort="1" velocity="20" />
       <joint_properties friction="0.0"/>
     </joint>
 
     <!-- caster wheel Link -->
-    <link name="${prefix}caster_wheel_link">
+    <link name="${prefix}caster_wheel">
       <visual>
         <origin xyz="1.1302212892091925974e-17 5.5511151231257827021e-17 0" rpy="3.141592653589793116 -8.3802055560433424155e-17 -3.141592653589793116" />
         <geometry>
