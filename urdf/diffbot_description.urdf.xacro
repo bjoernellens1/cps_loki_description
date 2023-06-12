@@ -37,7 +37,7 @@
         <visual>
             <origin xyz="1.2116163827517698533e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///right_motor.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/right_motor.stl"/>
             </geometry>
             <material name="right_motor_material">
                 <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
@@ -46,13 +46,13 @@
         <collision>
             <origin xyz="1.2116163827517698533e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///right_motor.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/right_motor.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///motor_bar_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/motor_bar_frame.stl"/>
             </geometry>
             <material name="motor_bar_frame_material">
                 <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
@@ -61,13 +61,13 @@
         <collision>
             <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///motor_bar_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/motor_bar_frame.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///base_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/base_frame.stl"/>
             </geometry>
             <material name="base_frame_material">
                 <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
@@ -76,13 +76,13 @@
         <collision>
             <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///base_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/base_frame.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="7.952827485173360274e-17 -0.4790000000000002589 -0.045000000000000012212" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///left_motor.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_motor.stl"/>
             </geometry>
             <material name="left_motor_material">
                 <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
@@ -91,13 +91,13 @@
         <collision>
             <origin xyz="7.952827485173360274e-17 -0.4790000000000002589 -0.045000000000000012212" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///left_motor.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_motor.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_connector.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_connector.stl"/>
             </geometry>
             <material name="caster_connector_material">
                 <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
@@ -106,13 +106,13 @@
         <collision>
             <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_connector.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_connector.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="1.1422274437126975695e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///right_motor_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/right_motor_frame.stl"/>
             </geometry>
             <material name="right_motor_frame_material">
                 <color rgba="0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1.0"/>
@@ -121,13 +121,13 @@
         <collision>
             <origin xyz="1.1422274437126975695e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///right_motor_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/right_motor_frame.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="8.6467168755640818792e-17 -0.47900000000000020339 -0.04500000000000002609" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///left_motor_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_motor_frame.stl"/>
             </geometry>
             <material name="left_motor_frame_material">
                 <color rgba="0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1.0"/>
@@ -136,13 +136,13 @@
         <collision>
             <origin xyz="8.6467168755640818792e-17 -0.47900000000000020339 -0.04500000000000002609" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///left_motor_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_motor_frame.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_angle.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_angle.stl"/>
             </geometry>
             <material name="caster_angle_material">
                 <color rgba="0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1.0"/>
@@ -151,7 +151,7 @@
         <collision>
             <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_angle.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_angle.stl"/>
             </geometry>
         </collision>
         <inertial>
@@ -176,7 +176,7 @@
         <visual>
             <origin xyz="-0.10999999999999998668 0.060000000000000011657 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
             <geometry>
-                <mesh filename="package:///left_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
             </geometry>
             <material name="left_wheel_material">
                 <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
@@ -185,7 +185,7 @@
         <collision>
             <origin xyz="-0.10999999999999998668 0.060000000000000011657 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
             <geometry>
-                <mesh filename="package:///left_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
             </geometry>
         </collision>
         <inertial>
@@ -210,7 +210,7 @@
         <visual>
             <origin xyz="-0.10999999999999998668 0.05999999999999999778 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
             <geometry>
-                <mesh filename="package:///left_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
             </geometry>
             <material name="left_wheel_material">
                 <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
@@ -219,7 +219,7 @@
         <collision>
             <origin xyz="-0.10999999999999998668 0.05999999999999999778 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
             <geometry>
-                <mesh filename="package:///left_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
             </geometry>
         </collision>
         <inertial>
@@ -244,7 +244,7 @@
         <visual>
             <origin xyz="1.1302212892091925974e-17 5.5511151231257827021e-17 0" rpy="3.141592653589793116 -8.3802055560433424155e-17 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_wheel.stl"/>
             </geometry>
             <material name="caster_wheel_material">
                 <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
@@ -253,13 +253,13 @@
         <collision>
             <origin xyz="1.1302212892091925974e-17 5.5511151231257827021e-17 0" rpy="3.141592653589793116 -8.3802055560433424155e-17 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_wheel.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_wheel.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="2.6961896103443574151e-18 0 0" rpy="3.141592653589793116 -0 0" />
             <geometry>
-                <mesh filename="package:///caster_bearing_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_bearing_frame.stl"/>
             </geometry>
             <material name="caster_bearing_frame_material">
                 <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
@@ -268,13 +268,13 @@
         <collision>
             <origin xyz="2.6961896103443574151e-18 0 0" rpy="3.141592653589793116 -0 0" />
             <geometry>
-                <mesh filename="package:///caster_bearing_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_bearing_frame.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_left.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_left.stl"/>
             </geometry>
             <material name="caster_frame_left_material">
                 <color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
@@ -283,13 +283,13 @@
         <collision>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_left.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_left.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_top.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_top.stl"/>
             </geometry>
             <material name="caster_frame_top_material">
                 <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
@@ -298,13 +298,13 @@
         <collision>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_top.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_top.stl"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_right.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_right.stl"/>
             </geometry>
             <material name="caster_frame_right_material">
                 <color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
@@ -313,7 +313,7 @@
         <collision>
             <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
             <geometry>
-                <mesh filename="package:///caster_frame_right.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_right.stl"/>
             </geometry>
         </collision>
         <inertial>
@@ -328,7 +328,7 @@
         <visual>
             <origin xyz="-4.1223423760908350982e-18 0.13500000000000000888 0.025000000000000001388" rpy="3.141592653589793116 -0 1.0263416486754026723e-48" />
             <geometry>
-                <mesh filename="package:///laser_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/laser_frame.stl"/>
             </geometry>
             <material name="laser_frame_material">
                 <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
@@ -337,7 +337,7 @@
         <collision>
             <origin xyz="-4.1223423760908350982e-18 0.13500000000000000888 0.025000000000000001388" rpy="3.141592653589793116 -0 1.0263416486754026723e-48" />
             <geometry>
-                <mesh filename="package:///laser_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/laser_frame.stl"/>
             </geometry>
         </collision>
         <inertial>
@@ -362,7 +362,7 @@
         <visual>
             <origin xyz="3.0814879110195773649e-32 0 0" rpy="-1.570796326794896558 2.775557561562890365e-16 -9.2444637330585569324e-33" />
             <geometry>
-                <mesh filename="package:///camera_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/camera_frame.stl"/>
             </geometry>
             <material name="hikvision_ds-u02_material">
                 <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
@@ -371,7 +371,7 @@
         <collision>
             <origin xyz="3.0814879110195773649e-32 0 0" rpy="-1.570796326794896558 2.775557561562890365e-16 -9.2444637330585569324e-33" />
             <geometry>
-                <mesh filename="package:///camera_frame.stl"/>
+                <mesh filename="file://$(find bot_mini_description)/mesh/camera_frame.stl"/>
             </geometry>
         </collision>
         <inertial>
