@@ -163,20 +163,6 @@
 
     <!-- Adding base_footprint for mapping (Needed by slam toolbox) -->
     <link name="${prefix}base_footprint">
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="${base_length} ${base_width} ${base_height}"/> <!-- Updated base dimensions -->
-        </geometry>
-      </collision>
-
-      <visual>
-        <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
-        <geometry>
-          <box size="${base_length} ${base_width} ${base_height}"/> <!-- Updated base dimensions -->
-        </geometry>
-        <material name="orange"/>
-      </visual>
     </link>
 
     <joint name="${prefix}base_footprint_joint" type="fixed">
@@ -253,7 +239,7 @@
     </link>
 
     <!-- caster wheel joint -->
-    <joint name="${prefix}caster_wheel_joint" type="continuous">
+    <joint name="${prefix}caster_wheel_joint" type="fixed">
       <origin xyz="5.3368019332749957491e-17 -0.29900000000000009903 -0.064999999999999974465" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}caster_wheel_link" />
@@ -371,7 +357,7 @@
     </link>
 
     <!-- laser_joint -->
-    <joint name="${prefix}laser_joint" type="continuous">
+    <joint name="${prefix}laser_joint" type="fixed">
       <origin xyz="8.9609515272227915335e-17 -0.61400000000000021227 -0.019999999999999972661" rpy="-3.141592653589793116 -6.1629758220391519929e-33 1.1102230246251560474e-16" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}laser_link" />
@@ -406,7 +392,7 @@
 
 
     <!-- Camera Joint -->
-    <joint name="${prefix}camera_joint" type="continuous">
+    <joint name="${prefix}camera_joint" type="fixed">
       <origin xyz="9.7569399001892381731e-17 -0.6290000000000002256 -0.045000000000000005274" rpy="6.1062266354383530837e-16 1.1102230246251567869e-16 3.141592653589793116" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}camera_link" />
