@@ -195,7 +195,7 @@
 
     <!-- laser_joint -->
     <joint name="${prefix}laser_joint" type="fixed">
-      <origin xyz="0.025000000000000001388 2.7755575615628913511e-17 0.025000000000000008327" rpy="-3.141592653589793116 -6.1629758220391519929e-33 1.1102230246251560474e-16" />
+      <origin xyz="0 ${base_length/2} ${z_offset}" rpy="0 0 0"/>
       <parent link="${prefix}base_link" />
       <child link="${prefix}laser_link" />
       <axis xyz="0 0 1"/>
