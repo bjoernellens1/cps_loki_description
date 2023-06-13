@@ -67,7 +67,7 @@
 
     <!-- right wheel joint -->
     <!-- fixed wheel joint for testing, type was continuous -->
-    <joint name="${prefix}right_wheel_joint" type="fixed">
+    <joint name="${prefix}right_wheel_joint" type="continuous">
       <origin xyz="6.9388939039072283776e-17 -0.125 -0.05999999999999999778" rpy="-1.57079632679489678 -1.1660544913393859426e-16 6.9388939039072283776e-17" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}right_wheel" />
@@ -102,7 +102,7 @@
 
     <!-- fixed wheel joint for testing, type was continuous -->
     <!-- left wheel joint -->
-    <joint name="${prefix}left_wheel_joint" type="fixed">
+    <joint name="${prefix}left_wheel_joint" type="continuous">
       <origin xyz="-5.5511151231257827021e-17 0.12500000000000005551 -0.060000000000000011657" rpy="1.570796326794896558 -1.6964751660994284333e-16 1.7347234759768063549e-16" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}left_wheel" />
