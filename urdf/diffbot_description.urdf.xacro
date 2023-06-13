@@ -21,14 +21,14 @@
     <xacro:property name="z_offset" value="-${base_height/2}" />
     <!-- Space btw top of beam and the each joint -->
 
-    <!-- dummy link - used for ros2 control so it stops complaining? -->
+    <!-- dummy link - used for ros2 control so it stops complaining?
     <link name="${prefix}dummy_link">
     </link>
 
     <joint name="${prefix}dummy_joint" type="fixed">
       <parent link="${prefix}dummy_link" />
       <child link="${prefix}base_link" />
-    </joint>
+    </joint> -->
 
     <!-- needed for replacement to find mesh dir: file://$(find bot_mini_description)/mesh/ -->
 
