@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="diffbot" params="prefix">
+
+    <!-- Constants for robot dimensions -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+    <xacro:property name="base_mass" value="0.3" />
+    <!-- arbitrary value for base mass -->
+    <xacro:property name="base_width" value="0.25" />
+    <!-- Updated wheel spacing to 25cm -->
+    <xacro:property name="base_length" value="0.34" />
+    <xacro:property name="base_height" value="0.1" />
+    <xacro:property name="wheel_mass" value="0.3" />
+    <!-- arbitrary value for wheel mass -->
+    <xacro:property name="wheel_len" value="0.020" />
+    <xacro:property name="wheel_radius" value="0.0625" />
+    <xacro:property name="caster_wheel_mass" value="0.1" />
+    <!-- arbitrary value for caster wheel mass -->
+    <xacro:property name="caster_wheel_radius" value="0.04" />
+    <xacro:property name="z_offset" value="-${base_height/2}" />
+    <!-- Space btw top of beam and the each joint -->
+
+    <!-- dummy link - used for ros2 control so it stops complaining?
+    <link name="${prefix}dummy_link">
+    </link>
+
+    <joint name="${prefix}dummy_joint" type="fixed">
+      <parent link="${prefix}dummy_link" />
+      <child link="${prefix}base_link" />
+    </joint> -->
+
+    <!-- needed for replacement to find mesh dir: file://$(find bot_mini_description)/mesh/ -->
+
+    <!-- Base Link -->
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/base_link_visual.stl"/>
+        </geometry>
+        <material name="base_link_material">
+          <color rgba="0.80032179626883115375 0.81301836741632160788 0.83346199892499306383 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/base_link_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-2.5368985414583082317e-17 0.083896718007622009261 -0.0037261823981863751235" rpy="0 0 0"/>
+        <mass value="8.4123950268139715547" />
+        <inertia ixx="0.090166990291185383777" ixy="4.7429179749238352248e-18" ixz="1.4209310488728267579e-18" iyy="0.055481261106946747064" iyz="-0.01112159061226025876" izz="0.13051099377067149065" />
+      </inertial>
+    </link>
+
+    <!-- Adding base_footprint for mapping (Needed by slam toolbox) -->
+    <link name="${prefix}base_footprint">
+    </link>
+
+    <joint name="${prefix}base_footprint_joint" type="fixed">
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}base_footprint" />
+    </joint>
+
+    <!-- right wheel joint -->
+    <!-- fixed wheel joint for testing, type was continuous -->
+    <joint name="${prefix}right_wheel_joint" type="continuous">
+      <origin xyz="6.9388939039072283776e-17 -0.125 -0.05999999999999999778" rpy="-1.57079632679489678 -1.1660544913393859426e-16 6.9388939039072283776e-17" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}right_wheel" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- right wheel Link -->
+    <link name="${prefix}right_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_visual.stl"/>
+        </geometry>
+        <material name="wheel_link_material">
+          <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-1.3877787807814456755e-17 -6.9388939039072283776e-18 -0.017500000000000029421" rpy="0 0 0"/>
+        <mass value="0.43298678305638949038" />
+        <inertia ixx="0.00043196650576949035269" ixy="0" ixz="1.8666117243005040269e-36" iyy="0.00043196650576949029848" iyz="0" izz="0.00078373880522818965139" />
+      </inertial>
+    </link>
+
+    <!-- fixed wheel joint for testing, type was continuous -->
+    <!-- left wheel joint -->
+    <joint name="${prefix}left_wheel_joint" type="continuous">
+      <origin xyz="-5.5511151231257827021e-17 0.12500000000000005551 -0.060000000000000011657" rpy="1.570796326794896558 -1.6964751660994284333e-16 1.7347234759768063549e-16" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}left_wheel" />
+      <axis xyz="0 0 1" />
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0" />
+    </joint>
+
+    <!-- left wheel Link -->
+    <link name="${prefix}left_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_2_visual.stl"/>
+        </geometry>
+        <material name="wheel_link_2_material">
+          <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_2_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-2.7755575615628913511e-17 0 -0.017500000000000015543" rpy="0 0 0"/>
+        <mass value="0.43298678305638949038" />
+        <inertia ixx="0.00043196650576949035269" ixy="1.4778173856800390343e-52" ixz="-4.8081924471597460774e-36" iyy="0.00043196650576949029848" iyz="0" izz="0.00078373880522818965139" />
+      </inertial>
+    </link>
+
+    <!-- caster wheel joint -->
+    <joint name="${prefix}caster_wheel_joint" type="fixed">
+      <origin xyz="-0.29000000000000003553 -1.236754434711827603e-16 -0.019999999999999969191" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}caster_wheel" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- caster wheel Link -->
+    <link name="${prefix}caster_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_link_visual.stl"/>
+        </geometry>
+        <material name="caster_link_material">
+          <color rgba="0.69513764518117548974 0.69513764518117548974 0.69513764518117548974 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_link_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-0.0043392325658342043027 -0.026018163063004008662 -0.040087257391101506487" rpy="0 0 0"/>
+        <mass value="0.4365196214157913146" />
+        <inertia ixx="0.00065232223366267665706" ixy="-2.2812456870885095374e-05" ixz="-2.819328031928647945e-05" iyy="0.00051934268155350092177" iyz="-0.00016904771834628737077" izz="0.00028021186492738437085" />
+      </inertial>
+    </link>
+
+    <!-- laser_link -->
+    <link name="${prefix}laser_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/laser_link_visual.stl"/>
+        </geometry>
+        <material name="laser_link_material">
+          <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/laser_link_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="8.0502568807622093404e-21 2.7755575615628913511e-17 -0.01526549883836261258" rpy="0 0 0"/>
+        <mass value="0.065307030550339775776" />
+        <inertia ixx="1.578111853789072904e-05" ixy="-4.8590457654361857326e-53" ixz="1.0816309858643350309e-52" iyy="1.5781118537890654501e-05" iyz="9.8088682514084147142e-38" izz="1.9760068210357054465e-05" />
+      </inertial>
+    </link>
+
+    <!-- laser_joint -->
+    <joint name="${prefix}laser_joint" type="fixed">
+      <origin xyz="0.025000000000000001388 2.7755575615628913511e-17 0.025000000000000008327" rpy="-3.141592653589793116 -6.1629758220391519929e-33 1.1102230246251560474e-16" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}laser_link" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- camera_link -->
+    <link name="${prefix}camera_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/camera_link_visual.stl"/>
+        </geometry>
+        <material name="camera_link_material">
+          <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/camera_link_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="5.3378961738576549005e-07 0.0016484827975361887251 -0.020840554768345870285" rpy="0 0 0"/>
+        <mass value="0.064008494238512375629" />
+        <inertia ixx="1.7394518695567356026e-05" ixy="-4.87317899857206066e-10" ixz="-1.7982620680900958214e-11" iyy="3.2074360900148983727e-05" iyz="2.0892555595878115295e-06" izz="2.8321439372619354409e-05" />
+      </inertial>
+    </link>
+
+
+    <!-- Camera Joint -->
+    <joint name="${prefix}camera_joint" type="fixed">
+      <origin xyz="0.040000000000000007772 1.3877787807814456755e-17 -4.4408920985006270245e-18" rpy="6.1062266354383530837e-16 1.1102230246251567869e-16 3.141592653589793116" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}camera_link" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
