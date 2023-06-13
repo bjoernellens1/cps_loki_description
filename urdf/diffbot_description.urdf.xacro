@@ -70,7 +70,7 @@
     <!-- right wheel joint -->
     <!-- fixed wheel joint for testing, type was continuous -->
     <joint name="${prefix}right_wheel_joint" type="continuous">
-      <origin xyz="0 -0.125 ${z_offset}" rpy="0 0 0" />
+      <origin xyz="0 -0.125 ${z_offset}" rpy="${PI} 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}right_wheel" />
       <axis xyz="0 0 -1"/>
@@ -105,7 +105,7 @@
     <!-- fixed wheel joint for testing, type was continuous -->
     <!-- left wheel joint -->
     <joint name="${prefix}left_wheel_joint" type="continuous">
-      <origin xyz="0 0.125 ${z_offset}" rpy="0 0 0" />
+      <origin xyz="0 0.125 ${z_offset}" rpy="${PI} 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}left_wheel" />
       <axis xyz="0 0 -1" />
