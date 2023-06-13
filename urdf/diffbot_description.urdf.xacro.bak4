@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="diffbot" params="prefix">
+
+    <!-- Constants for robot dimensions -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+    <xacro:property name="base_mass" value="0.3" />
+    <!-- arbitrary value for base mass -->
+    <xacro:property name="base_width" value="0.25" />
+    <!-- Updated wheel spacing to 25cm -->
+    <xacro:property name="base_length" value="0.34" />
+    <xacro:property name="base_height" value="0.1" />
+    <xacro:property name="wheel_mass" value="0.3" />
+    <!-- arbitrary value for wheel mass -->
+    <xacro:property name="wheel_len" value="0.020" />
+    <xacro:property name="wheel_radius" value="0.0625" />
+    <xacro:property name="caster_wheel_mass" value="0.1" />
+    <!-- arbitrary value for caster wheel mass -->
+    <xacro:property name="caster_wheel_radius" value="0.04" />
+    <xacro:property name="z_offset" value="-${base_height/2}" />
+    <!-- Space btw top of beam and the each joint -->
+
+    <!-- dummy link - used for ros2 control so it stops complaining? -->
+    <link name="${prefix}dummy_link">
+    </link>
+
+    <joint name="${prefix}dummy_joint" type="fixed">
+      <parent link="${prefix}dummy_link" />
+      <child link="${prefix}base_link" />
+    </joint>
+
+    <!-- needed for replacement to find mesh dir: file://$(find bot_mini_description)/mesh/ -->
+
+    <!-- Base Link -->
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="1.2116163827517698533e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/right_motor.stl"/>
+        </geometry>
+        <material name="right_motor_material">
+          <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="1.2116163827517698533e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/right_motor.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/motor_bar_frame.stl"/>
+        </geometry>
+        <material name="motor_bar_frame_material">
+          <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/motor_bar_frame.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/base_frame.stl"/>
+        </geometry>
+        <material name="base_frame_material">
+          <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="1.142227443712697323e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/base_frame.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="7.952827485173360274e-17 -0.4790000000000002589 -0.045000000000000012212" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_motor.stl"/>
+        </geometry>
+        <material name="left_motor_material">
+          <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="7.952827485173360274e-17 -0.4790000000000002589 -0.045000000000000012212" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_motor.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_connector.stl"/>
+        </geometry>
+        <material name="caster_connector_material">
+          <color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_connector.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="1.1422274437126975695e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/right_motor_frame.stl"/>
+        </geometry>
+        <material name="right_motor_frame_material">
+          <color rgba="0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="1.1422274437126975695e-16 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/right_motor_frame.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="8.6467168755640818792e-17 -0.47900000000000020339 -0.04500000000000002609" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_motor_frame.stl"/>
+        </geometry>
+        <material name="left_motor_frame_material">
+          <color rgba="0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="8.6467168755640818792e-17 -0.47900000000000020339 -0.04500000000000002609" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_motor_frame.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_angle.stl"/>
+        </geometry>
+        <material name="caster_angle_material">
+          <color rgba="0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="7.4868290514223760072e-17 -0.47900000000000020339 -0.044999999999999998335" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_angle.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="7.8969938888060694711e-17 -0.50510328199237819469 -0.048726182398186372591" rpy="0 0 0"/>
+        <mass value="8.4123950268139715547" />
+        <inertia ixx="0.090166990291185411532" ixy="1.2345824367636969194e-17" ixz="2.072268733803397153e-18" iyy="0.055481261106946754003" iyz="-0.011121590612260267433" izz="0.13051099377067154617" />
+      </inertial>
+    </link>
+
+    <!-- Adding base_footprint for mapping (Needed by slam toolbox) -->
+    <link name="${prefix}base_footprint">
+    </link>
+
+    <joint name="${prefix}base_footprint_joint" type="fixed">
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}base_footprint" />
+    </joint>
+
+    <!-- right wheel joint -->
+    <joint name="${prefix}right_wheel_joint" type="continuous">
+      <origin xyz="-0.12499999999999993061 -0.58900000000000007905 -0.10500000000000000999" rpy="-1.570796326794896558 -2.2204460492503130808e-16 -1.57079632679489678" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}right_wheel" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- right wheel Link -->
+    <link name="${prefix}right_wheel">
+      <visual>
+        <origin xyz="-0.10999999999999998668 0.060000000000000011657 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
+        </geometry>
+        <material name="left_wheel_material">
+          <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-0.10999999999999998668 0.060000000000000011657 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="1.3877787807814456755e-17 1.3877787807814456755e-17 -0.017500000000000015543" rpy="0 0 0"/>
+        <mass value="0.43298678305638949038" />
+        <inertia ixx="0.00043196650576949035269" ixy="0" ixz="1.8666117243005040269e-36" iyy="0.00043196650576949029848" iyz="0" izz="0.00078373880522818965139" />
+      </inertial>
+    </link>
+
+    <!-- left wheel joint -->
+    <joint name="${prefix}left_wheel_joint" type="continuous">
+      <origin xyz="0.12500000000000013878 -0.58900000000000007905 -0.10500000000000003775" rpy="1.57079632679489678 -1.1102230246251567869e-16 -1.570796326794896558" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}left_wheel" />
+      <axis xyz="0 0 1" />
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0" />
+    </joint>
+
+    <!-- left wheel Link -->
+    <link name="${prefix}left_wheel">
+      <visual>
+        <origin xyz="-0.10999999999999998668 0.05999999999999999778 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
+        </geometry>
+        <material name="left_wheel_material">
+          <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-0.10999999999999998668 0.05999999999999999778 0.125" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/left_wheel.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="1.3877787807814456755e-17 0 -0.017500000000000015543" rpy="0 0 0"/>
+        <mass value="0.43298678305638949038" />
+        <inertia ixx="0.00043196650576949035269" ixy="1.4778173856800390343e-52" ixz="-4.8081924471597460774e-36" iyy="0.00043196650576949029848" iyz="0" izz="0.00078373880522818965139" />
+      </inertial>
+    </link>
+
+    <!-- caster wheel joint -->
+    <joint name="${prefix}caster_wheel_joint" type="fixed">
+      <origin xyz="5.3368019332749957491e-17 -0.29900000000000009903 -0.064999999999999974465" rpy="-5.5511151231257814695e-17 -0 3.141592653589793116" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}caster_wheel" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- caster wheel Link -->
+    <link name="${prefix}caster_wheel">
+      <visual>
+        <origin xyz="1.1302212892091925974e-17 5.5511151231257827021e-17 0" rpy="3.141592653589793116 -8.3802055560433424155e-17 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_wheel.stl"/>
+        </geometry>
+        <material name="caster_wheel_material">
+          <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="1.1302212892091925974e-17 5.5511151231257827021e-17 0" rpy="3.141592653589793116 -8.3802055560433424155e-17 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_wheel.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="2.6961896103443574151e-18 0 0" rpy="3.141592653589793116 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_bearing_frame.stl"/>
+        </geometry>
+        <material name="caster_bearing_frame_material">
+          <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="2.6961896103443574151e-18 0 0" rpy="3.141592653589793116 -0 0" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_bearing_frame.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_left.stl"/>
+        </geometry>
+        <material name="caster_frame_left_material">
+          <color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_left.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_top.stl"/>
+        </geometry>
+        <material name="caster_frame_top_material">
+          <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_top.stl"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_right.stl"/>
+        </geometry>
+        <material name="caster_frame_right_material">
+          <color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-1.232595164407830946e-32 0 0" rpy="3.141592653589793116 4.7934256393637874986e-32 -3.141592653589793116" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/caster_frame_right.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="8.4447232280069085184e-18 -0.026377523546259201009 -0.040087257391101464854" rpy="0 0 0"/>
+        <mass value="0.4365196214157913146" />
+        <inertia ixx="0.00065612682799630025251" ixy="1.7999450129153882205e-20" ixz="4.3198680309969317292e-20" iyy="0.0005155380872198755916" iyz="-0.00017138258993622227538" izz="0.00028021186492738366612" />
+      </inertial>
+    </link>
+
+    <!-- laser_link -->
+    <link name="${prefix}laser_link">
+      <visual>
+        <origin xyz="-4.1223423760908350982e-18 0.13500000000000000888 0.025000000000000001388" rpy="3.141592653589793116 -0 1.0263416486754026723e-48" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/laser_frame.stl"/>
+        </geometry>
+        <material name="laser_frame_material">
+          <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-4.1223423760908350982e-18 0.13500000000000000888 0.025000000000000001388" rpy="3.141592653589793116 -0 1.0263416486754026723e-48" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/laser_frame.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="8.0502568807930242195e-21 5.5511151231257827021e-17 -0.015265498838362610845" rpy="0 0 0"/>
+        <mass value="0.065307030550339775776" />
+        <inertia ixx="1.5781118537890725652e-05" ixy="-4.8590457654361866599e-53" ixz="1.0816309858643348454e-52" iyy="1.5781118537890654501e-05" iyz="9.8088682514084063618e-38" izz="1.9760068210357051077e-05" />
+      </inertial>
+    </link>
+
+    <!-- laser_joint -->
+    <joint name="${prefix}laser_joint" type="fixed">
+      <origin xyz="8.9609515272227915335e-17 -0.61400000000000021227 -0.019999999999999972661" rpy="-3.141592653589793116 -6.1629758220391519929e-33 1.1102230246251560474e-16" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}laser_link" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+    <!-- camera_link -->
+    <link name="${prefix}camera_link">
+      <visual>
+        <origin xyz="3.0814879110195773649e-32 0 0" rpy="-1.570796326794896558 2.775557561562890365e-16 -9.2444637330585569324e-33" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/camera_frame.stl"/>
+        </geometry>
+        <material name="hikvision_ds-u02_material">
+          <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="3.0814879110195773649e-32 0 0" rpy="-1.570796326794896558 2.775557561562890365e-16 -9.2444637330585569324e-33" />
+        <geometry>
+          <mesh filename="file://$(find bot_mini_description)/mesh/camera_frame.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="5.3378961738545780533e-07 0.0016484827975361904598 -0.020840554768345873754" rpy="0 0 0"/>
+        <mass value="0.064008494238512375629" />
+        <inertia ixx="1.7394518695567359414e-05" ixy="-4.8731789985706151619e-10" ixz="-1.7982620680951681188e-11" iyy="3.2074360900148983727e-05" iyz="2.0892555595878115295e-06" izz="2.8321439372619351021e-05" />
+      </inertial>
+    </link>
+
+
+    <!-- Camera Joint -->
+    <joint name="${prefix}camera_joint" type="fixed">
+      <origin xyz="9.7569399001892381731e-17 -0.6290000000000002256 -0.045000000000000005274" rpy="6.1062266354383530837e-16 1.1102230246251567869e-16 3.141592653589793116" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}camera_link" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
