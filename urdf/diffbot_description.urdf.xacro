@@ -174,7 +174,7 @@
     <!-- laser_link -->
     <link name="${prefix}laser_link">
       <visual>
-        <origin xyz="0 0 0" rpy="180 -0 0" />
+        <origin xyz="0 0 0" rpy="${PI} -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/laser_link_visual.stl"/>
         </geometry>
@@ -183,13 +183,13 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="180 -0 0" />
+        <origin xyz="0 0 0" rpy="${PI} -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/laser_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
-        <origin xyz="8.0502568807622093404e-21 2.7755575615628913511e-17 -0.01526549883836261258" rpy="180 0 0"/>
+        <origin xyz="8.0502568807622093404e-21 2.7755575615628913511e-17 -0.01526549883836261258" rpy="${PI} 0 0"/>
         <mass value="0.065307030550339775776" />
         <inertia ixx="1.578111853789072904e-05" ixy="-4.8590457654361857326e-53" ixz="1.0816309858643350309e-52" iyy="1.5781118537890654501e-05" iyz="9.8088682514084147142e-38" izz="1.9760068210357054465e-05" />
       </inertial>
