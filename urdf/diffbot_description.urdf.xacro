@@ -81,7 +81,7 @@
     <!-- right wheel Link -->
     <link name="${prefix}right_wheel">
       <visual>
-        <origin xyz="0 -${wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 0 ${wheel_len}" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_visual.stl"/>
         </geometry>
@@ -90,7 +90,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 -${wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 0 ${wheel_len}" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_collision.stl"/>
         </geometry>
@@ -116,7 +116,7 @@
     <!-- left wheel Link -->
     <link name="${prefix}left_wheel">
       <visual>
-        <origin xyz="0 ${wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 0 ${wheel_len}" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_2_visual.stl"/>
         </geometry>
@@ -125,7 +125,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 ${wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 0 ${wheel_len}" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_2_collision.stl"/>
         </geometry>
