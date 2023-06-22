@@ -70,7 +70,7 @@
     <!-- right wheel joint -->
     <!-- fixed wheel joint for testing, type was continuous -->
     <joint name="${prefix}right_wheel_joint" type="continuous">
-      <origin xyz="0 {-0.125 - wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
+      <origin xyz="0 ${-0.125 - wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}right_wheel" />
       <axis xyz="0 0 -1"/>
@@ -81,7 +81,7 @@
     <!-- right wheel Link -->
     <link name="${prefix}right_wheel">
       <visual>
-        <origin xyz="0 -{wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 -${wheel_len /2} 0" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_visual.stl"/>
         </geometry>
@@ -90,7 +90,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 -0 0" />
+        <origin xyz="0 -${wheel_len /2} 0" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_collision.stl"/>
         </geometry>
@@ -105,7 +105,7 @@
     <!-- fixed wheel joint for testing, type was continuous -->
     <!-- left wheel joint -->
     <joint name="${prefix}left_wheel_joint" type="continuous">
-      <origin xyz="0 {0.125 + wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
+      <origin xyz="0 ${0.125 + wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}left_wheel" />
       <axis xyz="0 0 1" />
@@ -116,7 +116,7 @@
     <!-- left wheel Link -->
     <link name="${prefix}left_wheel">
       <visual>
-        <origin xyz="0 {wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 ${wheel_len /2} 0" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_2_visual.stl"/>
         </geometry>
@@ -125,7 +125,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 {wheel_len /2} 0" rpy="0 -0 0" />
+        <origin xyz="0 ${wheel_len /2} 0" rpy="0 -0 0" />
         <geometry>
           <mesh filename="package://bot_mini_description/mesh/wheel_link_2_collision.stl"/>
         </geometry>
