@@ -240,5 +240,28 @@
       <joint_properties friction="0.0"/>
     </joint>
 
+    <!-- imu_link -->
+    <link name="${prefix}imu_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 -0 0" />
+      </collision>
+      <inertial>
+        <origin xyz="5.3378961738576549005e-07 0.0016484827975361887251 -0.020840554768345870285" rpy="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- imu Joint -->
+    <joint name="${prefix}imu_joint" type="fixed">
+      <origin xyz="${base_length / 2 - base_offset} 0 0" rpy="0 0 ${PI}" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}imu_link" />
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="20" />
+      <joint_properties friction="0.0"/>
+    </joint>
+
   </xacro:macro>
 </robot>
