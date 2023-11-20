@@ -25,7 +25,7 @@
     <xacro:property name="chassis_offset" value="0.065"/>
 
     <!-- Materials -->
-    <material name="white">
+    <!-- <material name="white">
         <color rgba="1 1 1 1" />
     </material>
 
@@ -59,7 +59,7 @@
 
     <material name="lightGrey">
         <color rgba="0.6 0.6 0.6 1.0"/>
-    </material>
+    </material> -->
     
     <!-- Base Link -->
     <link name="${prefix}base_link">
