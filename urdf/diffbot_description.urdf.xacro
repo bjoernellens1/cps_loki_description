@@ -68,7 +68,6 @@
     </joint>
 
     <!-- right wheel joint -->
-    <!-- fixed wheel joint for testing, type was continuous -->
     <joint name="${prefix}right_wheel_joint" type="continuous">
       <origin xyz="0 ${-0.125 - wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
       <parent link="${prefix}base_link" />
@@ -102,7 +101,6 @@
       </inertial>
     </link>
 
-    <!-- fixed wheel joint for testing, type was continuous -->
     <!-- left wheel joint -->
     <joint name="${prefix}left_wheel_joint" type="continuous">
       <origin xyz="0 ${0.125 + wheel_len /2} ${z_offset}" rpy="${PI / 2} 0 0" />
