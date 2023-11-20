@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'loki_support'
+package_name = 'cps_loki_description'
 
 setup(
     name=package_name,
