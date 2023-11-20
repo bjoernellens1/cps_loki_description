@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'bot_mini_description'
+package_name = 'loki_support'
 
 setup(
     name=package_name,
