@@ -30,14 +30,14 @@
       <child link="${prefix}base_link" />
     </joint> -->
 
-    <!-- needed for replacement to find mesh dir: file://$(find bot_mini_description)/mesh/ -->
+    <!-- needed for replacement to find mesh dir: file://$(find cps_loki_description)/mesh/ -->
 
     <!-- Base Link -->
     <link name="${prefix}base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/base_link_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/base_link_visual.stl"/>
         </geometry>
         <material name="base_link_material">
           <color rgba="0.80032179626883115375 0.81301836741632160788 0.83346199892499306383 1.0"/>
@@ -46,7 +46,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/base_link_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/base_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -81,7 +81,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/wheel_link_visual.stl"/>
         </geometry>
         <material name="wheel_link_material">
           <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
@@ -90,7 +90,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/wheel_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -116,7 +116,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_2_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/wheel_link_2_visual.stl"/>
         </geometry>
         <material name="wheel_link_2_material">
           <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
@@ -125,7 +125,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/wheel_link_2_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/wheel_link_2_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -150,7 +150,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/caster_link_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/caster_link_visual.stl"/>
         </geometry>
         <material name="caster_link_material">
           <color rgba="0.69513764518117548974 0.69513764518117548974 0.69513764518117548974 1.0"/>
@@ -159,7 +159,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/caster_link_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/caster_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -174,7 +174,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/laser_link_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/laser_link_visual.stl"/>
         </geometry>
         <material name="laser_link_material">
           <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
@@ -183,7 +183,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/laser_link_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/laser_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -208,7 +208,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/camera_link_visual.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/camera_link_visual.stl"/>
         </geometry>
         <material name="camera_link_material">
           <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
@@ -217,7 +217,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <geometry>
-          <mesh filename="file://$(find bot_mini_description)/mesh/camera_link_collision.stl"/>
+          <mesh filename="file://$(find cps_loki_description)/mesh/camera_link_collision.stl"/>
         </geometry>
       </collision>
       <inertial>
