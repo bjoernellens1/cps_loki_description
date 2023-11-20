@@ -21,7 +21,18 @@
     <xacro:property name="z_offset" value="-${base_height/2}" />
     <!-- Offset of main Axis to center of base body (Axis of rotation for steering) -->
     <xacro:property name="base_offset" value="0.11" />
-    
+
+    <!-- dummy link - used for ros2 control so it stops complaining?
+    <link name="${prefix}dummy_link">
+    </link>
+
+    <joint name="${prefix}dummy_joint" type="fixed">
+      <parent link="${prefix}dummy_link" />
+      <child link="${prefix}base_link" />
+    </joint> -->
+
+    <!-- needed for replacement to find mesh dir: package://cps_loki_description/mesh/ -->
+
     <!-- Base Link -->
     <link name="${prefix}base_link">
       <visual>
