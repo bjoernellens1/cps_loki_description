@@ -22,6 +22,7 @@
     <xacro:property name="caster_wheel_mass" value="0.01"/>
     <xacro:property name="caster_wheel_offset_x" value="0.075"/>
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
+    <xacro:property name="chassis_offset" value="0.065"/>
 
     <!-- Materials -->
     <material name="white">
@@ -250,7 +251,7 @@
 
     <!-- Camera Joint -->
     <joint name="${prefix}camera_joint" type="fixed">
-      <origin xyz="${base_length / 2 - base_offset} 0 0" rpy="0 0 ${PI}" />
+      <origin xyz="${chassis_length / 2 - chassis_offset} 0 0" rpy="0 0 ${PI}" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}camera_link" />
       <axis xyz="0 0 1"/>
