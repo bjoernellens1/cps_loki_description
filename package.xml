@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>bot_mini_description</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <name>loki_Support</name>
+  <version>0.0.2</version>
+  <description>This ROS2 package includes needed ROS2 configurations for CPS Loki Robot</description>
   <maintainer email="bjoern.ellensohn@gmail.com">bjorn</maintainer>
   <license>TODO: License declaration</license>
 
