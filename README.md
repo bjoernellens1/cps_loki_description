@@ -1,3 +1,3 @@
-# cps_loki_support
+# cps_loki_description
 
-ROS2 support package for CPS Loki Robot (Small green one)
+ROS2 desription package for CPS Loki Robot (Small green one)
