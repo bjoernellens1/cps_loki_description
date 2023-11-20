@@ -23,43 +23,6 @@
     <xacro:property name="caster_wheel_offset_x" value="0.075"/>
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
     <xacro:property name="chassis_offset" value="0.065"/>
-
-    <!-- Materials -->
-    <!-- <material name="white">
-        <color rgba="1 1 1 1" />
-    </material>
-
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1"/>
-    </material>
-
-    <material name="blue">
-        <color rgba="0.2 0.2 1 1"/>
-    </material>
-
-    <material name="black">
-        <color rgba="0 0 0 1"/>
-    </material>
-
-    <material name="red">
-        <color rgba="1 0 0 1"/>
-    </material>
-    
-    <material name="green">
-        <color rgba="0.0 0.8 0.0 1.0"/>
-    </material>
-    
-    <material name="grey">
-        <color rgba="0.6 0.6 0.6 1.0"/>
-    </material>
-    
-    <material name="grey2">
-        <color rgba="0.9 0.9 0.9 1.0"/>
-    </material>
-
-    <material name="lightGrey">
-        <color rgba="0.6 0.6 0.6 1.0"/>
-    </material> -->
     
     <!-- Base Link -->
     <link name="${prefix}base_link">
@@ -80,7 +43,7 @@
     <joint name="${prefix}chassis_joint" type="fixed">
         <parent link="${prefix}base_link"/>
         <child link="${prefix}chassis"/>
-        <origin xyz="${-chassis_length/2 + 0.065} 0 ${wheel_radius - wheel_offset_z}"/>
+        <origin xyz="${-chassis_length/2 + chassis_offset} 0 ${wheel_radius - wheel_offset_z}"/>
     </joint>
 
     <link name="${prefix}chassis">
@@ -200,7 +163,7 @@
     <joint name="${prefix}laser_joint" type="fixed">
         <parent link="${prefix}chassis"/>
         <child link="${prefix}laser_frame"/>
-        <origin xyz="${chassis_length/2 - 0.15285} 0 ${chassis_height/2 + 0.030}" rpy="0 0 ${pi}"/>
+        <origin xyz="-0.07 0 10" rpy="0 0 ${pi}"/>
     </joint>
 
     <link name="${prefix}laser_frame">
@@ -247,7 +210,6 @@
         <inertia ixx="1.7394518695567356026e-05" ixy="-4.87317899857206066e-10" ixz="-1.7982620680900958214e-11" iyy="3.2074360900148983727e-05" iyz="2.0892555595878115295e-06" izz="2.8321439372619354409e-05" />
       </inertial>
     </link>
-
 
     <!-- Camera Joint -->
     <joint name="${prefix}camera_joint" type="fixed">
