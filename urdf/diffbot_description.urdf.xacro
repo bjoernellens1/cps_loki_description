@@ -160,10 +160,11 @@
     </gazebo>
 
     <!-- LASER -->
+    <!-- now rotated and mounted on the underside -->
     <joint name="${prefix}laser_joint" type="fixed">
         <parent link="${prefix}chassis"/>
         <child link="${prefix}laser_frame"/>
-        <origin xyz="${chassis_length/2 -0.07} 0 0.10" rpy="0 0 0"/>
+        <origin xyz="${chassis_length/2 -chassis_offset} 0 -0.07" rpy="${2*pi} 0 0"/>
     </joint>
 
     <link name="${prefix}laser_frame">
